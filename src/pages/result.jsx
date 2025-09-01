@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { Topbar } from "../comp/top";
 import { useState, useEffect } from "react";
-import { Showerror } from "./error";
+import { Showerror } from "../comp/error";
 
 
 export function Resultcomp(){
