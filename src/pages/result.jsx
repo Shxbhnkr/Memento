@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { Topbar } from "../comp/top";
 import { useState, useEffect } from "react";
+import { Showerror } from "./error";
 
 
 export function Resultcomp(){
@@ -8,20 +9,12 @@ export function Resultcomp(){
     const { Country,Gender,Dob } = state || {};
     
     if (!state || !Country || !Gender || !Dob) {
-        return <div className="w-full h-full relative bg-gray-100">
-
-            <img className="absolute top-[14rem] left-[45rem]" width="90" src="https://img.icons8.com/laces/64/skull.png" alt="skull"/>
-            <div className="absolute top-[20rem] left-[25rem] font-inter text-center text-5xl text-gray-300">Incomplete Input . Fill them all</div>
-        </div> ;
+        return <Showerror text="Incomplete Input . Fill them all"/>
         
     }
     const formattedGender = Gender.toLowerCase();
     if (formattedGender !== "m" && formattedGender !== "f") {
-    return <div className="w-full h-full relative bg-gray-100">
-
-            <img className="absolute top-[14rem] left-[45rem]" width="90" src="https://img.icons8.com/laces/64/skull.png" alt="skull"/>
-            <div className="absolute top-[20rem] left-[25rem] font-inter text-center text-5xl text-gray-300">Gender input wrong . Select m/f</div>
-        </div> ;
+    return <Showerror text="Gender input wrong . Select m/f"/>
 }
 
     
@@ -33,30 +26,18 @@ export function Resultcomp(){
     ]);
     const formattedcountry = Country.toLowerCase();
     if (!countries.has(formattedcountry)){
-        return <div className="w-full h-full relative bg-gray-100">
-
-            <img className="absolute top-[14rem] left-[45rem]" width="90" src="https://img.icons8.com/laces/64/skull.png" alt="skull"/>
-            <div className="absolute top-[20rem] left-[25rem] font-inter text-center text-5xl text-gray-300">Country input wrong.Hover over the circle to get the hint</div>
-        </div> ;
+        return <Showerror text="Country input wrong.Hover over the circle to get the hint"/>
     }
 
     const lifeExpectancy = countries.get(formattedcountry)[formattedGender];
 
     if (!lifeExpectancy) {
-        return <div className="w-full h-full relative bg-gray-100">
-
-            <img className="absolute top-[14rem] left-[45rem]" width="90" src="https://img.icons8.com/laces/64/skull.png" alt="skull"/>
-            <div className="absolute top-[20rem] left-[25rem] font-inter text-center text-5xl text-gray-300">Invalid country or Gender</div>
-        </div> ;
+        return <Showerror text="Invalid country or Gender"/>
     }
 
     const parts = Dob.split("-");
     if (parts.length !== 3) {
-        return <div className="w-full h-full relative bg-gray-100">
-
-            <img className="absolute top-[14rem] left-[45rem]" width="90" src="https://img.icons8.com/laces/64/skull.png" alt="skull"/>
-            <div className="absolute top-[20rem] left-[25rem] font-inter text-center text-5xl text-gray-300">Invalid date Format (dd-mm-yyyy)</div>
-        </div> ;
+        return <Showerror text="Invalid date Format (dd-mm-yyyy)"/>
     }
     
     const today2=new Date
@@ -66,37 +47,24 @@ export function Resultcomp(){
     const [day, month, year] = parts;
     const birthDate = new Date(year, month - 1, day);
     if (isNaN(birthDate.getTime())) {
-        return <div className="w-full h-full relative bg-gray-100">
-
-            <img className="absolute top-[14rem] left-[45rem]" width="90" src="https://img.icons8.com/laces/64/skull.png" alt="skull"/>
-            <div className="absolute top-[20rem] left-[25rem] font-inter text-center text-5xl text-gray-300">Invalid date value</div>
-        </div> ;
+        return <Showerror text="Invalid date value"/>
     }
     const moremonths=[2,4,6,9,11]
-    if(day>31||month>12||year>Currentyear||year==Currentyear &&(month>Currentmonth||day>Currentday)||(month in moremonths && day>30)||(month==2 && day>29)){
-        return<div className="w-full h-full relative bg-gray-100">
-
-            <img className="absolute top-[14rem] left-[45rem]" width="90" src="https://img.icons8.com/laces/64/skull.png" alt="skull"/>
-            <div className="absolute top-[20rem] left-[25rem] font-inter text-center text-5xl text-gray-300">Smartas*es die sooner fyi. Try again</div>
-        </div> ;
+    if(day>31||day==0||month==0||month>12||year>Currentyear||(year==Currentyear && (month>Currentmonth||(month==Currentmonth && day>Currentday)))||((moremonths.includes (month)) && day>30)||(month==2 && day>29)||month == 2 && ((isLeapYear(year) && day > 29) || (!isLeapYear(year) && day > 28))
+    ){
+        return<Showerror text="Smartas*es die sooner fyi. Try again"/>
     }
     const Age=Currentyear-year
     if(Age>lifeExpectancy){
-        return <div className="w-full h-full relative bg-gray-100">
+        return <Showerror text="You have already lived more than expected.REST IN PIECE"/>}
 
-            <img className="absolute top-[14rem] left-[45rem]" width="90" src="https://img.icons8.com/laces/64/skull.png" alt="skull"/>
-            <div className="absolute top-[20rem] left-[25rem] font-inter text-center text-5xl text-gray-300">You have already lived more than expected.REST IN PIECE</div>
-        </div> ;
-    }
-    if(month||day||year.includes(".")){
-        return<div className="w-full h-full relative bg-gray-100">
 
-            <img className="absolute top-[14rem] left-[45rem]" width="90" src="https://img.icons8.com/laces/64/skull.png" alt="skull"/>
-            <div className="absolute top-[20rem] left-[25rem] font-inter text-center text-5xl text-gray-300">Smartas*es die sooner fyi. Try again</div>
-        </div> ;;
-    
+    if (
+        String(month).includes(".") ||String(day).includes(".") ||String(year).includes(".")
+    ) {
+        return <Showerror text="Smartas*es die sooner fyi. Try again"/>
     }
-    
+
     
 
     const deathYear = birthDate.getFullYear() + lifeExpectancy;
@@ -105,14 +73,13 @@ export function Resultcomp(){
     const today = new Date();
     
     const timeLeft = expectedDeathDate - today;
-    const daysLeft = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
     const secondsleft=Math.floor( timeLeft /1000 ) ;
     const hourleft=Math.floor( timeLeft /(1000*60*60) ) ;
     const peher=Math.floor(timeLeft / (1000 * 60 * 60 * 12));
     const weeksleft=Math.floor( timeLeft /(1000 * 60 * 60 * 24 * 7) ) ;
     const Summerleft=Math.floor( timeLeft /(1000 * 60 * 60 * 12 * 365) ) ;
     const Winterleft=Math.floor( timeLeft /(1000 * 60 * 60 * 12 * 365) ) ;
-    const Yearsleft=Math.floor( timeLeft /(1000 * 60 * 60 * 24 * 365) )
+    
  
     const dusrapeher=peher-1
     const [timeLeft2, setTimeLeft] = useState(expectedDeathDate - new Date());
@@ -136,7 +103,7 @@ export function Resultcomp(){
         <div
         className="font-inter text-gray-300 text-center text-2xl font-bold"
         onMouseEnter={() => setShowdays(true)}
-        onMouseLeave={() => setShowdays(false)}
+        onMouseOut={() => setShowdays(false)}
     >
         { showdays ? (
         <span>{peher} mornings</span>
@@ -159,7 +126,7 @@ function Shownight() {
         <div
         className="font-inter text-gray-300 text-center text-2xl font-bold"
         onMouseEnter={() => setShownights(true)}
-        onMouseLeave={() => setShownights(false)}
+        onMouseOut={() => setShownights(false)}
     >
         { shownights ? (
         <span>{dusrapeher} nights</span>
