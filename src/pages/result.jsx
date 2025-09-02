@@ -28,7 +28,7 @@ export function Resultcomp(){
     if (!countries.has(formattedcountry)){
         return <Showerror text="Country input wrong.Hover over the circle to get the hint"/>
     }
-
+    
     const lifeExpectancy = countries.get(formattedcountry)[formattedGender];
 
     if (!lifeExpectancy) {
@@ -42,15 +42,20 @@ export function Resultcomp(){
     
     const today2=new Date
     const Currentyear=today2.getFullYear()
-    const Currentmonth=today2.getMonth()
-    const Currentday=today2.getDay()
+    const Currentmonth=today2.getMonth()+1
+    const Currentday=today2.getDate()
     const [day, month, year] = parts;
     const birthDate = new Date(year, month - 1, day);
     if (isNaN(birthDate.getTime())) {
         return <Showerror text="Invalid date value"/>
     }
+
+    function isLeapYear(year) {
+        return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+    }
+
     const moremonths=[2,4,6,9,11]
-    if(day>31||day==0||month==0||month>12||year>Currentyear||(year==Currentyear && (month>Currentmonth||(month==Currentmonth && day>Currentday)))||((moremonths.includes (month)) && day>30)||(month==2 && day>29)||month == 2 && ((isLeapYear(year) && day > 29) || (!isLeapYear(year) && day > 28))
+    if(day>31||day==0||month==0||month>12||year>Currentyear||(year==Currentyear && (month>Currentmonth||(month==Currentmonth && day>Currentday)))||((moremonths.includes (month)) && day>30)||(month == 2 && ((isLeapYear(year) && day > 29) || (!isLeapYear(year) && day > 28)))
     ){
         return<Showerror text="Smartas*es die sooner fyi. Try again"/>
     }
