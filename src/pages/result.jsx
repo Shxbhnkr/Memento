@@ -82,8 +82,8 @@ export function Resultcomp(){
     const hourleft=Math.floor( timeLeft /(1000*60*60) ) ;
     const peher=Math.floor(timeLeft / (1000 * 60 * 60 * 12));
     const weeksleft=Math.floor( timeLeft /(1000 * 60 * 60 * 24 * 7) ) ;
-    const Summerleft=Math.floor( timeLeft /(1000 * 60 * 60 * 12 * 365) ) ;
-    const Winterleft=Math.floor( timeLeft /(1000 * 60 * 60 * 12 * 365) ) ;
+    const Summerleft=Math.floor( timeLeft /(1000 * 60 * 60 * 24 * 365) ) ;
+    const Winterleft=Math.floor( timeLeft /(1000 * 60 * 60 * 24 * 365) ) ;
     
  
     const dusrapeher=peher-1
