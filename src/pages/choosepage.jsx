@@ -24,7 +24,7 @@ export function Choosecomp(){
     return<>
     <div className='bg-gray-100 overflow-hidden min-h-screen'>
         <Topbar/>
-        <div className="font-inter text-gray-300 text-7xl font-normal tracking-wide flex justify-center m-10">--/ ??? /--</div>
+        <div className="font-inter text-gray-300 text-7xl font-normal tracking-wide flex justify-center mt-[10rem] m-10">--/ ??? /--</div>
         <div className="flex justify-center">
         <div className="bg-transparent my-1  w-1/4 h-96 ">
         <div className="flex ">

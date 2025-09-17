@@ -149,7 +149,7 @@ function Shownight() {
     return<>
     <div className='bg-gray-100 overflow-hidden min-h-screen'>
     <Topbar/>
-    <div className="text-center font-inter text-6xl font-medium tracking-wide text-gray-300 mt-8 ">
+    <div className="text-center font-inter text-6xl font-medium tracking-wide text-gray-300 mt-20 ">
         <span>YOU</span>
         <span className="ml-8">HAVE</span>
     </div>
