@@ -192,7 +192,7 @@ function Shownight() {
     </div>
 
 
-    <div className="text-center lg:mt-5 lg:-mt-0 -mt-28">
+    <div className="text-center lg:mt-5 -mt-28">
         <span className="font-inter text-xl text-gray-300">and now its stuck to you forever!</span>
     </div>
     </div>
