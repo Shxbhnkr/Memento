@@ -142,7 +142,7 @@ export function Firstpage(){
                     DIE
                     </div>
                 </div>
-                <div className='flex justify-center text-gray-300 lg:text-2xl text-l font-normal text-center font-inter lg:m-8  lg:mx-0 mx-14'>
+                <div className='flex justify-center text-gray-300 lg:text-2xl text-l font-normal text-center font-inter lg:mt-8 lg:mb-8  mb-14 lg:mx-8 mx-14'>
                 A Reminder to ignite the Urgency in you.
                 </div>
                 <div className='flex justify-center'>

@@ -26,7 +26,7 @@ export function Resultcomp(){
     ]);
     const formattedcountry = Country.toLowerCase();
     if (!countries.has(formattedcountry)){
-        return <Showerror text="Country input wrong.Hover over the circle to get the hint"/>
+        return <Showerror text=" Choose a country from India , Russia, china and pakistan."/>
     }
     
     const lifeExpectancy = countries.get(formattedcountry)[formattedGender];
@@ -163,7 +163,7 @@ function Shownight() {
         
     </div>
     <div className="flex justify-center items-center">
-        <div className="lg:w-[11rem] w-3/4 lg:h-[12rem] h-1/6 lg:m-16 m-4 lg:-mt-0 -mt-24 lg:ml-0 ml-36 rounded-3xl bg-gray-100 shadow-[0px_3px_20px_rgba(1,18,1,0.5)] p-2 lg:px-0 px-4">
+        <div className="lg:w-[11rem] w-3/4 lg:h-[12rem] h-1/6 lg:m-16 m-4 lg:ml-0 ml-24 rounded-3xl bg-gray-100 shadow-[0px_3px_20px_rgba(1,18,1,0.5)] p-2 lg:px-0 px-4">
             <div className="  h-16 p-4 font-inter text-gray-300 text-center lg:text-2xl text-md font-bold">
                 Winter
             </div>
@@ -172,16 +172,16 @@ function Shownight() {
             </div>
         </div>
 
-        <div className="w-[17rem] h-[16rem] rounded-full m-8 bg-gray-100 shadow-[0px_3px_20px_rgba(1,18,1,0.5)] ">
-            <div className="h-[8rem] bg-red-00 flex justify-center items-center">
+        <div className="lg:w-[17rem] lg:h-[16rem] rounded-full lg:m-8 bg-gray-100 shadow-[0px_3px_20px_rgba(1,18,1,0.5)] ">
+            <div className="lg:h-[8rem] bg-red-00 flex justify-center items-center">
             <Showday/>
             </div>
-            <div className="h-[8rem] bg-red-00 flex justify-center items-center">
+            <div className="lg:h-[8rem] bg-red-00 flex justify-center items-center">
             <Shownight/>
             </div>
             
         </div>
-        <div className="lg:w-[11rem] w-2/4 lg:h-[12rem] h-1/6 lg:m-16 m-4 lg:-mt-0 -mt-24  lg:mr-0 mr-36 rounded-3xl bg-gray-100 shadow-[0px_3px_20px_rgba(1,18,1,0.5)] p-2 ">
+        <div className="lg:w-[11rem] w-2/4 lg:h-[12rem] h-1/6 lg:m-16 m-4 lg:mr-0 mr-24 rounded-3xl bg-gray-100 shadow-[0px_3px_20px_rgba(1,18,1,0.5)] p-2 ">
             <div className="   h-16 p-4 font-inter text-gray-300 text-center lg:text-2xl text-md font-bold">
                 Summer
             </div>
@@ -192,7 +192,7 @@ function Shownight() {
     </div>
 
 
-    <div className="text-center lg:mt-5 -mt-28">
+    <div className="text-center mt-5 ">
         <span className="font-inter text-xl text-gray-300">and now its stuck to you forever!</span>
     </div>
     </div>
