@@ -12,6 +12,13 @@ gsap.registerPlugin(useGSAP,ScrollTrigger);
 export function Firstpage(){
 
     useGSAP(()=>{
+        gsap.from(".borde",{
+            opacity:0,
+            duration:2
+        })
+
+
+
         let tl=gsap.timeline({
             scrollTrigger:{
                 trigger:".borde",
