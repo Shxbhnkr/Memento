@@ -12,7 +12,7 @@ export const Topbar=() =>{
     })
     return<>
         <Link to="/">
-        <div className=' top w-full flex justify-between py-5 px-16 z-50 bg-gray-100 fixed  ' >
+        <div className=' top w-full flex justify-between py-5 lg:px-16 px-8 z-50 bg-gray-100 fixed  ' >
         <div className='text-gray-300 text-2xl font-semibold font-gills'>Memento</div>
         
         <button className='mr-6'>

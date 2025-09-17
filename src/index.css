@@ -3,4 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
-
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    color-scheme: light ;
+    background: #E5E7EB;
+    forced-color-adjust: none ;
+    scrollbar-width: none; 
+}

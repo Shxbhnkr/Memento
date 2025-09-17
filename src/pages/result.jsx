@@ -49,6 +49,9 @@ export function Resultcomp(){
     if (isNaN(birthDate.getTime())) {
         return <Showerror text="Invalid date value"/>
     }
+    if(year.length<4){
+        return <Showerror text="Incorrect year format"/>
+    }
 
     function isLeapYear(year) {
         return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
@@ -62,8 +65,8 @@ export function Resultcomp(){
     const Age=Currentyear-year
     if(Age>lifeExpectancy){
         return <Showerror text="You have already lived more than expected.REST IN PIECE"/>}
-
-
+    
+    
     if (
         String(month).includes(".") ||String(day).includes(".") ||String(year).includes(".")
     ) {
@@ -149,22 +152,22 @@ function Shownight() {
     return<>
     <div className='bg-gray-100 overflow-hidden min-h-screen'>
     <Topbar/>
-    <div className="text-center font-inter text-6xl font-medium tracking-wide text-gray-300 mt-20 ">
+    <div className="text-center font-inter lg:text-6xl text-3xl font-medium lg:tracking-wide tracking-normal text-gray-300 lg:mt-24 mt-32">
         <span>YOU</span>
-        <span className="ml-8">HAVE</span>
+        <span className="lg:ml-8 ml-4">HAVE</span>
     </div>
     <div className="flex justify-center">
-    <div className="w-[52rem] h-[6.5rem] item-center mt-6 rounded-[8rem] bg-gray-100 shadow-[0px_3px_20px_rgba(1,18,1,0.5)] text-center font-inter text-[2.5rem] text-gray-300 pt-6 ">
+    <div className="lg:w-[52rem] w-3/4 lg:h-[6.5rem] h-20 item-center mt-6 rounded-[8rem] bg-gray-100 shadow-[0px_3px_20px_rgba(1,18,1,0.5)] text-center font-inter lg:text-[2.5rem] text-sm  text-gray-300 lg:pt-10 pt-7 ">
         <div><b>{weeksleft}</b> w  - <b>{hourleft}</b> hrs  - <b>{secondsleft} </b> s</div>
     </div>
         
     </div>
     <div className="flex justify-center items-center">
-        <div className="w-[11rem] h-[12rem] m-16 rounded-3xl bg-gray-100 shadow-[0px_3px_20px_rgba(1,18,1,0.5)] p-2">
-            <div className="  h-16 p-4 font-inter text-gray-300 text-center text-2xl font-bold">
+        <div className="lg:w-[11rem] w-3/4 lg:h-[12rem] h-1/6 lg:m-16 m-4 lg:-mt-0 -mt-24 lg:ml-0 ml-36 rounded-3xl bg-gray-100 shadow-[0px_3px_20px_rgba(1,18,1,0.5)] p-2 lg:px-0 px-4">
+            <div className="  h-16 p-4 font-inter text-gray-300 text-center lg:text-2xl text-md font-bold">
                 Winter
             </div>
-            <div className="  font-inter text-gray-300 text-center text-7xl font-bold">
+            <div className="  font-inter text-gray-300 text-center lg:text-7xl text-5xl lg:-mt-0 -mt-2 font-bold">
                 {Summerleft}
             </div>
         </div>
@@ -178,18 +181,18 @@ function Shownight() {
             </div>
             
         </div>
-        <div className="w-[11rem] h-[12rem] m-16 rounded-3xl bg-gray-100 shadow-[0px_3px_20px_rgba(1,18,1,0.5)] p-2 ">
-            <div className="  h-16 p-4 font-inter text-gray-300 text-center text-2xl font-bold">
+        <div className="lg:w-[11rem] w-2/4 lg:h-[12rem] h-1/6 lg:m-16 m-4 lg:-mt-0 -mt-24  lg:mr-0 mr-36 rounded-3xl bg-gray-100 shadow-[0px_3px_20px_rgba(1,18,1,0.5)] p-2 ">
+            <div className="   h-16 p-4 font-inter text-gray-300 text-center lg:text-2xl text-md font-bold">
                 Summer
             </div>
-            <div className="font-inter text-gray-300 text-center text-7xl font-bold">
+            <div className="font-inter text-gray-300 text-center lg:text-7xl text-5xl lg:-mt-0 -mt-2 font-bold">
                 {Winterleft}
             </div>
         </div>
     </div>
 
 
-    <div className="text-center mt-5">
+    <div className="text-center lg:mt-5 lg:-mt-0 -mt-28">
         <span className="font-inter text-xl text-gray-300">and now its stuck to you forever!</span>
     </div>
     </div>
