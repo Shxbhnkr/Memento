@@ -167,7 +167,7 @@ function Shownight() {
             </div>
         </div>
 
-        <div className="lg:w-[17rem] lg:h-[16rem]  lg:m-8 bg-gray-100 shadow-[0px_3px_20px_rgba(1,18,1,0.5)] ">
+        <div className="lg:w-[17rem] lg:h-[16rem] rounded-full lg:m-8 bg-gray-100 shadow-[0px_3px_20px_rgba(1,18,1,0.5)] ">
             <div className="lg:h-[8rem] bg-red-00 flex justify-center items-center">
             <Showday/>
             </div>
