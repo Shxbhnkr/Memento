@@ -88,11 +88,10 @@ export function Resultcomp(){
     const Summerleft=Math.floor( timeLeft /(1000 * 60 * 60 * 24 * 365) ) ;
     const Winterleft=Math.floor( timeLeft /(1000 * 60 * 60 * 24 * 365) ) ;
     
- 
+
     const dusrapeher=peher-1
     const [timeLeft2, setTimeLeft] = useState(expectedDeathDate - new Date());
-    const [showdays, setShowdays] = useState(false);
-    const [shownights, setShownights] = useState(false);
+    
 
 
     useEffect(() => {
@@ -100,50 +99,46 @@ export function Resultcomp(){
         setTimeLeft(expectedDeathDate - new Date());
     }, 1000);
 
-        return () => clearInterval(interval); // cleanup
+        return () => clearInterval(interval); // 
     }, [expectedDeathDate]);
 
 
     
 
     function Showday() {
+        
         return (
-        <div
-        className="font-inter text-gray-300 text-center text-2xl font-bold"
-        onMouseEnter={() => setShowdays(true)}
-        onMouseOut={() => setShowdays(false)}
-    >
-        { showdays ? (
-        <span>{peher} mornings</span>
-        ) : (
-        <button>
-        <img
-            width="50"
-            height="50"
-            src="https://img.icons8.com/ios/50/sun--v1.png"
-            alt="sun"
-        />
-        </button>
-    )}
-    </div>
+        <div className="font-inter text-gray-300 text-center text-2xl font-bold group">
+            <div className="group-hover:hidden">
+                <img
+                    width="50"
+                    height="50"
+                    src="https://img.icons8.com/ios/50/sun--v1.png"
+                    alt="sun"
+                />
+            </div>
+            <div className="hidden group-hover:block">
+                <span>{peher} mornings</span>
+            </div>
+        </div>
 );
 }
 
 function Shownight() {
         return (
-        <div
-        className="font-inter text-gray-300 text-center text-2xl font-bold"
-        onMouseEnter={() => setShownights(true)}
-        onMouseOut={() => setShownights(false)}
-    >
-        { shownights ? (
-        <span>{dusrapeher} nights</span>
-        ) : (
-        <button>
-        <img width="36" height="36" src="https://img.icons8.com/fluency-systems-regular/48/crescent-moon.png" alt="crescent-moon"/>
-        </button>
-    )}
-    </div>
+        <div className="font-inter text-gray-300 text-center text-2xl font-bold group">
+            <div className="group-hover:hidden">
+                <img 
+                    width="36" 
+                    height="36" 
+                    src="https://img.icons8.com/fluency-systems-regular/48/crescent-moon.png" 
+                    alt="crescent-moon"
+                />
+            </div>
+            <div className="hidden group-hover:block">
+                <span>{dusrapeher} nights</span>
+            </div>
+        </div>
 );
 }
 
@@ -172,7 +167,7 @@ function Shownight() {
             </div>
         </div>
 
-        <div className="lg:w-[17rem] lg:h-[16rem] rounded-full lg:m-8 bg-gray-100 shadow-[0px_3px_20px_rgba(1,18,1,0.5)] ">
+        <div className="lg:w-[17rem] lg:h-[16rem]  lg:m-8 bg-gray-100 shadow-[0px_3px_20px_rgba(1,18,1,0.5)] ">
             <div className="lg:h-[8rem] bg-red-00 flex justify-center items-center">
             <Showday/>
             </div>
