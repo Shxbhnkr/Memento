@@ -60,7 +60,7 @@ export function Resultcomp(){
     const moremonths=[2,4,6,9,11]
     if(day>31||day==0||month==0||month>12||year>Currentyear||(year==Currentyear && (month>Currentmonth||(month==Currentmonth && day>Currentday)))||((moremonths.includes (month)) && day>30)||(month == 2 && ((isLeapYear(year) && day > 29) || (!isLeapYear(year) && day > 28)))
     ){
-        return<Showerror text="Smartas*es die sooner fyi. Try again"/>
+        return<Showerror text="Incorrect format Try again"/>
     }
     const Age=Currentyear-year
     if(Age>lifeExpectancy){
@@ -70,7 +70,7 @@ export function Resultcomp(){
     if (
         String(month).includes(".") ||String(day).includes(".") ||String(year).includes(".")
     ) {
-        return <Showerror text="Smartas*es die sooner fyi. Try again"/>
+        return <Showerror text="Incorrect format  Try again"/>
     }
 
     
